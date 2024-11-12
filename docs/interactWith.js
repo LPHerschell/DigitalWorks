@@ -1,4 +1,30 @@
 window.addEventListener('DOMContentLoaded', bunny, false);
+window.addEventListener('DOMContentLoaded', init, false);
+
+
+function init() {
+
+    highlightFirstPersonCheckbox.addEventListener('change', toggleHighlight, false);
+    highlightNameCheckbox.addEventListener('change', toggleHighlight, false);
+    }
+    
+    
+    function toggleHighlight() {
+        var targetClass;
+        switch (this.id) {
+            case "highlightFirstPersonCheckbox":
+                targetClass = "FirstPerson";
+                break;
+            case "highlightNameCheckbox":
+                targetClass = "name";
+                break;
+        }
+        var elements = document.getElementsByClassName(targetClass);
+        for (var i = 0; i < elements.length; i++) {
+            elements[i].classList.toggle("highlight");
+        }
+    } 
+
 
 function bunny() {
     alert ('Welcome to my website! Looks like the page loaded...almost! Just click here to continue, please.');
@@ -44,3 +70,12 @@ function anotherFunction() {
         anothers[i].style.cssText = "text-decoration: underline; text-decoration-style: wavy;"
     }
 }
+
+//Exercise 2 note
+function yetAnotherFunction() {
+    anothers = document.getElementsByClassName('checkmarked')
+    for (var i = 0, length = anothers.length; i < length; i++) {
+        anothers[i].style.cssText = "text-decoration: underline; text-decoration-style: bold;"
+    }
+}
+
